@@ -1,19 +1,59 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:linear-gradient(#007bb2,#0d1423);
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(#007bb2, #0d1423);
 }
-.card{
-    position: relative;
-    width: 320px;
-    height: 420px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 15px 35px rgb(0,0,0,0.25);
+.card {
+  position: relative;
+  width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  box-shadow: 0px 15px 35px rgb(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.card .poster::before {
+  content: "";
+  height: 100%;
+  bottom: -180px;
+  width: 100%;
+  position: absolute;
+  transition: 0.5s;
+  z-index: 1;
+  background: linear-gradient(0deg, #1064ac 50%, transparent);
+}
+.card:hover .poster::before{
+    bottom: 0px;
+}
+.card:hover .poster img{
+    transform: translateY(-50px);
+    filter: blur(5px);
+
+}
+.card .poster {
+  position: relative;
+}
+.card .poster img {
+  width: 100%;
+  transform: 0.5s;
+}
+.card .details{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    z-index: 2;
+    left: 0 ;
+    padding: 20px;
+    transition: 0.5s;
+}
+.card:hover .details{
+    bottom: 40px;
+}
+.card .details .logo{
+    max-width: 180px;
 }
